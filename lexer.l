@@ -1,3 +1,9 @@
+%top{
+#ifndef _POSIX_C_SOURCE
+#define _POSIX_C_SOURCE 200809L
+#endif
+}
+
 %{
 #include "parser.tab.h"
 #include <stdio.h>
@@ -18,6 +24,8 @@ static char *copy_text(const char *text) {
 
 %option noyywrap
 %option yylineno
+%option nounput
+%option noinput
 
 DIGIT       [0-9]
 LETTER      [a-zA-Z_]
